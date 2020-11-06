@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "peroxiteam", "peroxiteam\pe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{116F99A8-2599-41B3-8D61-03D8F5F913CC}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ProexiteamDB", "ProexiteamDB\ProexiteamDB.sqlproj", "{E3D690F0-6AB6-4E0A-AB24-2FE97F417628}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PeroxiteamDB", "ProexiteamDB\PeroxiteamDB.sqlproj", "{E3D690F0-6AB6-4E0A-AB24-2FE97F417628}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

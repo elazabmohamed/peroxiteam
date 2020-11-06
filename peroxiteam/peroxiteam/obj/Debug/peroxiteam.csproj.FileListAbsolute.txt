@@ -160,3 +160,5 @@ D:\Github\peroxiteam\peroxiteam\peroxiteam\obj\Debug\peroxiteam.csproj.CoreCompi
 D:\Github\peroxiteam\peroxiteam\peroxiteam\obj\Debug\peroxiteam.csproj.CopyComplete
 D:\Github\peroxiteam\peroxiteam\peroxiteam\obj\Debug\peroxiteam.dll
 D:\Github\peroxiteam\peroxiteam\peroxiteam\obj\Debug\peroxiteam.pdb
+D:\Github\peroxiteam\peroxiteam\peroxiteam\bin\DataLibrary.dll
+D:\Github\peroxiteam\peroxiteam\peroxiteam\bin\DataLibrary.pdb

@@ -5,8 +5,8 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using System.Web.Mvc;
-using
 using DataLibrary.Models;
+using static DataLibrary.Processor.StudentProcessor;
 
 namespace peroxiteam.Controllers
 {
@@ -45,7 +45,9 @@ namespace peroxiteam.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                int recordsCreated = CreateStudent(model.Id, model.Name, model.SurName, model.StudentNo,
+                                     model.UniversityMail, model.University, model.Department, model.Grade,
+                                     model.Password, model.StudentState);
                 return RedirectToAction("Index");
             }
 

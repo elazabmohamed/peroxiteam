@@ -17,7 +17,6 @@ namespace DataLibrary.Models
         public string Department { get; set; }
         public string Grade { get; set; }
         public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
         public string StudentState { get; set; }
     }
 }

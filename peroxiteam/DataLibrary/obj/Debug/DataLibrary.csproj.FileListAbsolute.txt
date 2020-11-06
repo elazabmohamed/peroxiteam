@@ -1,0 +1,9 @@
+D:\Github\peroxiteam\peroxiteam\DataLibrary\bin\Debug\DataLibrary.dll
+D:\Github\peroxiteam\peroxiteam\DataLibrary\bin\Debug\DataLibrary.pdb
+D:\Github\peroxiteam\peroxiteam\DataLibrary\bin\Debug\Dapper.dll
+D:\Github\peroxiteam\peroxiteam\DataLibrary\bin\Debug\Dapper.xml
+D:\Github\peroxiteam\peroxiteam\DataLibrary\obj\Debug\DataLibrary.csprojAssemblyReference.cache
+D:\Github\peroxiteam\peroxiteam\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+D:\Github\peroxiteam\peroxiteam\DataLibrary\obj\Debug\DataLibrary.csproj.CopyComplete
+D:\Github\peroxiteam\peroxiteam\DataLibrary\obj\Debug\DataLibrary.dll
+D:\Github\peroxiteam\peroxiteam\DataLibrary\obj\Debug\DataLibrary.pdb

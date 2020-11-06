@@ -50,11 +50,6 @@ namespace peroxiteam.Models
         [Required(ErrorMessage = "Lütfen şifrenizi girniz.")]
         public string Password { get; set; }
 
-        [DisplayName("Şifrenizi tekrar giriniz")]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "girdiğiniz şifreyi kontrol ediniz.")]
-        public string ConfirmPassword { get; set; }
-
 
         [DisplayName("Daha önce staj tecrübeniz oldu mu?")]
         [Required(ErrorMessage = "Lütfen bu alanı doldurunuz girniz.")]

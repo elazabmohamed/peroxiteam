@@ -12,7 +12,7 @@ namespace DataLibrary.DataAccess
 {
     class SqlDataAccess
     {
-        public static string GetConnectionString(string connectionName = "Proexiteam")
+        public static string GetConnectionString(string connectionName = "PeroxiteamDB")
         {
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
         }
