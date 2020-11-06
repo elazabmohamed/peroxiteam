@@ -5,12 +5,8 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using System.Web.Mvc;
-using Dapper;
-
-
-
-
-
+using
+using DataLibrary.Models;
 
 namespace peroxiteam.Controllers
 {
@@ -45,7 +41,7 @@ namespace peroxiteam.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp(Student model)
+        public ActionResult SignUp(StudentModel model)
         {
             if (ModelState.IsValid)
             {
