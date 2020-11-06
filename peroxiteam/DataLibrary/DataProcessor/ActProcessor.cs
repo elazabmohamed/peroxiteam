@@ -10,19 +10,20 @@ namespace DataLibrary.DataProcessor
 {
     public class ActProcessor
     {
-        public static int CreateAct(int id, string name, string category,
+        public static int CreateAct(int id, string type, string name, string category,
                 string descriptopn, string comments)
         {
             Act data = new Act
             {
                 Id = id,
                 Name = name,
+                Type = type,
                 Category = category,
                 Description = descriptopn,
                 Comments = comments,
             };
-            string sql = @"insert into dbo.Act (Id, Name, Category, Description, Comments)
-                         values (@Id, @Name, @Category, @Description, @Comments);";
+            string sql = @"insert into dbo.Act (Id, Name, Type, Category, Description, Comments)
+                         values (@Id, @Name, @Type, @Category, @Description, @Comments);";
             return SqlDataAccess.SaveData(sql, data);
         }
 
@@ -31,7 +32,7 @@ namespace DataLibrary.DataProcessor
 
         public static List<Act> LoadModels()
         {
-            string sql = @"select Id, Name, Category, Description, Comments
+            string sql = @"select Id, Name, Type, Category, Description, Comments
                           from dbo.Act;";
             return SqlDataAccess.LoadData<Act>(sql);
         }

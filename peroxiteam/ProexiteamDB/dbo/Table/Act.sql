@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Model]
+﻿CREATE TABLE [dbo].[Act]
 (
 	[D_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Type] NVARCHAR(50) NOT NULL, 

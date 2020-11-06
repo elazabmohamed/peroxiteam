@@ -6,13 +6,14 @@ using System.Web;
 using System.IO;
 using System.Web.Mvc;
 using DataLibrary.Models;
-using static DataLibrary.DataProcessor.StudentProcessor;
+using static DataLibrary.DataProcessor.ActProcessor;
 using System.Web.SessionState;
 using peroxiteam.SessionAttirbute;
+using Act = peroxiteam.Models.Act;
 
 namespace peroxiteam.Controllers
 {
-    [CheckSession]
+    //[CheckSession]
     public class CompanyController : Controller
     {
         // GET: Company
@@ -21,76 +22,25 @@ namespace peroxiteam.Controllers
             return View();
         }
 
-        // GET: Company/Details/5
-        public ActionResult Details(int id)
+
+        public ActionResult AddAct()
         {
             return View();
         }
 
-        // GET: Company/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Company/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddAct(Act model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                int recordsCreated = CreateAct(model.Id, model.Type, model.Name, model.Category, model.Description, model.Comments);
+                return RedirectToAction("Index", "Company");
             }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: Company/Edit/5
-        public ActionResult Edit(int id)
-        {
             return View();
         }
 
-        // POST: Company/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Company/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Company/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

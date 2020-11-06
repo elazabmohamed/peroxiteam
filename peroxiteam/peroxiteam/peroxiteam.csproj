@@ -178,6 +178,7 @@
     <Content Include="Views\Home\SignInCompany.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Home\SignUpCompany.cshtml" />
+    <Content Include="Views\Company\AddAct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

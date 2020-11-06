@@ -7,18 +7,35 @@ using System.IO;
 using System.Web.Mvc;
 using DataLibrary.Models;
 using static DataLibrary.DataProcessor.StudentProcessor;
+using static DataLibrary.DataProcessor.ActProcessor;
 using System.Web.SessionState;
 using peroxiteam.SessionAttirbute;
+using Act = peroxiteam.Models.Act;
 
 namespace peroxiteam.Controllers
 {
     [CheckSession]
     public class MemberController : Controller
     {
-        // GET: Member
+
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Message = "Staj - İş ilanları";
+            var data = DataLibrary.DataProcessor.ActProcessor.LoadModels();
+            List<Act> models = new List<Act>();
+
+            foreach (var row in data)
+            {
+                models.Add(new Act
+                {
+                    Id = row.Id,
+                    Name = row.Name,
+                    Category = row.Category,
+                    Description = row.Description,
+                    Comments = row.Comments
+                });
+            }
+            return View(models);
         }
 
         // GET: Member/Details/5
@@ -33,64 +50,28 @@ namespace peroxiteam.Controllers
             return View();
         }
 
-        // POST: Member/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult ViewActs()
         {
-            try
-            {
-                // TODO: Add insert logic here
+            ViewBag.Message = "Staj - İş ilanları";
+            var data = DataLibrary.DataProcessor.ActProcessor.LoadModels();
+            List<Act> models = new List<Act>();
 
-                return RedirectToAction("Index");
-            }
-            catch
+            foreach (var row in data)
             {
-                return View();
+                models.Add(new Act
+                {
+                    Id = row.Id,
+                    Name = row.Name,
+                    Category = row.Category,
+                    Description = row.Description,
+                    Comments = row.Comments
+                });
             }
+            return View(models);
         }
 
-        // GET: Member/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: Member/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: Member/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Member/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
