@@ -13,27 +13,27 @@ using peroxiteam.SessionAttirbute;
 namespace peroxiteam.Controllers
 {
     [CheckSession]
-    public class MemberController : Controller
+    public class CompanyController : Controller
     {
-        // GET: Member
+        // GET: Company
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Member/Details/5
+        // GET: Company/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Member/Create
+        // GET: Company/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Member/Create
+        // POST: Company/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -49,13 +49,13 @@ namespace peroxiteam.Controllers
             }
         }
 
-        // GET: Member/Edit/5
+        // GET: Company/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Member/Edit/5
+        // POST: Company/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -71,13 +71,13 @@ namespace peroxiteam.Controllers
             }
         }
 
-        // GET: Member/Delete/5
+        // GET: Company/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Member/Delete/5
+        // POST: Company/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

@@ -46,7 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\SqlDataAccess.cs" />
-    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="DataProcessor\ActProcessor.cs" />
+    <Compile Include="DataProcessor\CompanyProcessor.cs" />
+    <Compile Include="Models\Act.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="DataProcessor\StudentProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

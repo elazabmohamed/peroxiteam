@@ -1,13 +1,15 @@
 ﻿CREATE TABLE [dbo].[Student]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[D_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Name] NVARCHAR(50) NOT NULL, 
     [Surname] NVARCHAR(50) NOT NULL, 
     [StudentNo] NVARCHAR(50) NOT NULL, 
-    [UniversityMail] NVARCHAR(100) NULL, 
+    [UniversityMail] NVARCHAR(100) NOT NULL, 
     [University] NVARCHAR(100) NULL, 
     [Department] NVARCHAR(100) NULL, 
-    [Grade] NVARCHAR(50) NOT NULL, 
-    [Password] NVARCHAR(100) NULL, 
-    [StudentState] NCHAR(10) NULL
+    [Grade] NVARCHAR(50) NULL, 
+    [Password] NVARCHAR(100) NOT NULL, 
+    [StudentState] NCHAR(10) NULL, 
+    [Tag] NCHAR(10) NULL, 
+    [Id] INT NULL
 )

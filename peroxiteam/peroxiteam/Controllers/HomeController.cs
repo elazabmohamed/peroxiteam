@@ -6,7 +6,9 @@ using System.Web;
 using System.IO;
 using System.Web.Mvc;
 using DataLibrary.Models;
-using static DataLibrary.Processor.StudentProcessor;
+using static DataLibrary.DataProcessor.StudentProcessor;
+using static DataLibrary.DataProcessor.CompanyProcessor;
+using Student = peroxiteam.Models.Student;
 
 namespace peroxiteam.Controllers
 {
@@ -41,13 +43,13 @@ namespace peroxiteam.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp(StudentModel model)
+        public ActionResult SignUp(Student model)
         {
             if (ModelState.IsValid)
             {
                 int recordsCreated = CreateStudent(model.Id, model.Name, model.SurName, model.StudentNo,
                                      model.UniversityMail, model.University, model.Department, model.Grade,
-                                     model.Password, model.StudentState);
+                                     model.Password, model.StudentState, model.Tag);
                 return RedirectToAction("Index");
             }
 
@@ -72,10 +74,9 @@ namespace peroxiteam.Controllers
                 if (CheckLog(model.UniversityMail, model.Password))
                 {
 
-                    Session["Member_Email"] = model.UniversityMail;
+                    Session["Student_Email"] = model.UniversityMail;
                     return RedirectToAction("Index", "Member");
                  //  return RedirectToAction("Index", "Home");
-
                 }
                 else
                 {
@@ -86,6 +87,36 @@ namespace peroxiteam.Controllers
             return View();
         }
 
+
+        public ActionResult SignInCompany()
+        {
+            ViewBag.Message = "";
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignInCompany(LogIn model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if (CheckLogCompany(model.UniversityMail, model.Password))
+                {
+
+                    Session["Company_Email"] = model.UniversityMail;
+                    return RedirectToAction("Index", "Member");
+                    //  return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.Message = String.Format("Sorry, you are not registered.");
+                    return View();
+                }
+            }
+            return View();
+        }
 
     }
 }

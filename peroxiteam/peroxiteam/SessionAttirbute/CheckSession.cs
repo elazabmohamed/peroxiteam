@@ -12,7 +12,7 @@ namespace peroxiteam.SessionAttirbute
         {
             var MySession = HttpContext.Current.Session;
 
-            if (MySession["Member_Email"] == null)
+            if (MySession["Student_Email"] == null && MySession["Company_Email"] == null)
             {
                 filterContext.Result = new RedirectResult(string.Format("/Home/"));
             }

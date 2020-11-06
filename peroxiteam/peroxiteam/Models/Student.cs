@@ -54,6 +54,7 @@ namespace peroxiteam.Models
         [DisplayName("Daha önce staj tecrübeniz oldu mu?")]
         [Required(ErrorMessage = "Lütfen bu alanı doldurunuz girniz.")]
         public string StudentState { get; set; }
+        public string Tag { get; set; }
 
 
 

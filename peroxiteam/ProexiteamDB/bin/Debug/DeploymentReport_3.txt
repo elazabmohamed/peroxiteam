@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Company]
+       [dbo].[Model]
+       [dbo].[Student]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Rename
+       [dbo].[Student].[D_Id] (Column)
+       [dbo].[Model].[D_Id] (Column)
+       [dbo].[Company].[D_Id] (Column)
+     Table rebuild
+       [dbo].[Company] (Table)
+       [dbo].[Model] (Table)
+       [dbo].[Student] (Table)
+
+** Supporting actions

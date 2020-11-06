@@ -62,8 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Table\Student.sql" />
+    <Build Include="dbo\Table\Company.sql" />
+    <Build Include="dbo\Table\Act.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish profiles\ProexiteamDB.publish.xml" />
+    <None Include="Publish profiles\PeroxiteamDB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="PeroxiteamDB.refactorlog" />
   </ItemGroup>
 </Project>

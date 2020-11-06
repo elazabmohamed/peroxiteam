@@ -9,7 +9,6 @@ namespace peroxiteam.Models
 {
     public class LogIn
     {
-        //[Range(1, 9, ErrorMessage ="")]
         [DisplayName("E-posta")]
         [Required(ErrorMessage = "E-posta adresinizi giriniz.")]
         [DataType(DataType.EmailAddress)]

@@ -58,6 +58,30 @@ namespace DataLibrary.DataAccess
 
         }
 
+
+        public static bool CheckLogCompany<T>(string sql, T data)
+        {
+            using (SqlConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                cnn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (!dr.Read())
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+        }
+
         public static bool DeleteModel<T>(string sql, T data)
         {
             using (SqlConnection cnn = new SqlConnection(GetConnectionString()))

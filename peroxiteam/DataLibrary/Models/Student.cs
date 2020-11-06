@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Models
 {
-   public class StudentModel
+   public class Student
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,5 +18,6 @@ namespace DataLibrary.Models
         public string Grade { get; set; }
         public string Password { get; set; }
         public string StudentState { get; set; }
+        public string Tag { get; set; }
     }
 }
