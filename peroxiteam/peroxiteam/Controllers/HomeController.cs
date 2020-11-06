@@ -9,6 +9,7 @@ using DataLibrary.Models;
 using static DataLibrary.DataProcessor.StudentProcessor;
 using static DataLibrary.DataProcessor.CompanyProcessor;
 using Student = peroxiteam.Models.Student;
+using Company = peroxiteam.Models.Company;
 
 namespace peroxiteam.Controllers
 {
@@ -80,13 +81,33 @@ namespace peroxiteam.Controllers
                 }
                 else
                 {
-                    ViewBag.Message = String.Format("Sorry, you are not registered.");
+                    ViewBag.Message = String.Format("Sistemde kayıtlı değilsiniz.");
                     return View();
                 }
             }
             return View();
         }
 
+
+        public ActionResult SignUpCompany()
+        {
+            ViewBag.Message = "Üye ol";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignUpCompany(Company model)
+        {
+            if (ModelState.IsValid)
+            {
+                int recordsCreated = CreateCompany(model.Id, model.CompanyName,model.CompanyMail, model.Password, model.Tag);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
 
         public ActionResult SignInCompany()
         {
@@ -106,12 +127,12 @@ namespace peroxiteam.Controllers
                 {
 
                     Session["Company_Email"] = model.UniversityMail;
-                    return RedirectToAction("Index", "Member");
+                    return RedirectToAction("Index", "Company");
                     //  return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewBag.Message = String.Format("Sorry, you are not registered.");
+                    ViewBag.Message = String.Format("Sistemde kayıtlı değilsiniz.");
                     return View();
                 }
             }

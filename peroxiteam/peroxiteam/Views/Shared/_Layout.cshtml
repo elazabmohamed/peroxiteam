@@ -16,16 +16,53 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if (Session["Student_Email"] != null)
+                {
+                    @Html.ActionLink("SeniJuni", "Index", "Member", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else if (Session["Company_Email"] != null)
+                {
+                    @Html.ActionLink("SeniJuni", "Index", "Company", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("SeniJuni", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Üye ol", "SignUp", "Home")</li>
-                    <li>@Html.ActionLink("Giriş yap", "SignIn", "Home")</li>
-                </ul>
+                @if (Session["Student_Email"] != null)
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Member")</li>
+                        <li>@Html.ActionLink("About", "About", "Member")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Member")</li>
+                        <li>@Html.ActionLink("Çıkış yap", "", "Member")</li>
+                    </ul>
+                }
+                else if (Session["Company_Email"] != null)
+                {
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Company")</li>
+                <li>@Html.ActionLink("Staj ekle", "CreateStaj", "Company")</li>
+                <li>@Html.ActionLink("About", "About", "Company")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Company")</li>
+                <li>@Html.ActionLink("Çıkış yap", "", "Member")</li>
+            </ul>
+                }
+                else
+                {
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Üye ol", "SignUp", "Home")</li>
+                <li>@Html.ActionLink("Giriş yap", "SignIn", "Home")</li>
+                <li>@Html.ActionLink("Firma üyeliği", "SignUpCompany", "Home")</li>
+                <li>@Html.ActionLink("Firma girişi", "SignInCompany", "Home")</li>
+            </ul>
+                }
+
+
             </div>
         </div>
     </div>
