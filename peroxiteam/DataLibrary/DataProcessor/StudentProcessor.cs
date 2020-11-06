@@ -44,5 +44,18 @@ namespace DataLibrary.Processor
                           from dbo.Student;";
             return SqlDataAccess.LoadData<StudentModel>(sql);
         }
+
+
+        public static bool CheckLog(string email, string password)
+        {
+            StudentModel data = new StudentModel
+            {
+                UniversityMail = email,
+                Password = password,
+            };
+
+            string sql = @"SELECT* FROM dbo.Student WHERE UniversityMail='" + data.UniversityMail + "' AND Password='" + data.Password + "'";
+            return SqlDataAccess.CheckLog(sql, data);
+        }
     }
 }

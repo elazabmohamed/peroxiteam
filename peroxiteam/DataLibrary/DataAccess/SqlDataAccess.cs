@@ -35,7 +35,7 @@ namespace DataLibrary.DataAccess
         }
 
 
-        public static bool CheckAdmin<T>(string sql, T data)
+        public static bool CheckLog<T>(string sql, T data)
         {
             using (SqlConnection cnn = new SqlConnection(GetConnectionString()))
             {
@@ -57,10 +57,6 @@ namespace DataLibrary.DataAccess
             }
 
         }
-
-
-
-
 
         public static bool DeleteModel<T>(string sql, T data)
         {

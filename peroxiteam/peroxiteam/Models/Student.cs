@@ -23,7 +23,7 @@ namespace peroxiteam.Models
         [Required(ErrorMessage = "Lütfen öğrenci numaranızı giriniz.")]
         //[DataType(DataType.Currency)]
         //[DataType(DataType.Custom)]
-        [Range(000000000, 999999999, ErrorMessage ="Öğrenci Numaranızı doğru giriniz.")]
+        [StringLength(20, MinimumLength = 9, ErrorMessage = "En az 10 karakter girmeniz lazım.")]
         public string StudentNo { get; set; }
 
         [DisplayName("E-posta")]

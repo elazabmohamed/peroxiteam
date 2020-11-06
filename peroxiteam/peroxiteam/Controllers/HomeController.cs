@@ -53,5 +53,39 @@ namespace peroxiteam.Controllers
 
             return View();
         }
+
+
+        public ActionResult SignIn()
+        {
+            ViewBag.Message = "";
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignIn(LogIn model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if (CheckLog(model.UniversityMail, model.Password))
+                {
+
+                    Session["Member_Email"] = model.UniversityMail;
+                    return RedirectToAction("Index", "Member");
+                 //  return RedirectToAction("Index", "Home");
+
+                }
+                else
+                {
+                    ViewBag.Message = String.Format("Sorry, you are not registered.");
+                    return View();
+                }
+            }
+            return View();
+        }
+
+
     }
 }
