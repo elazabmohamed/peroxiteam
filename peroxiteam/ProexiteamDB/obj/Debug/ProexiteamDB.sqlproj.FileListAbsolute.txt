@@ -1,0 +1,10 @@
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\bin\Debug\ProexiteamDB.dacpac
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\bin\Debug\ProexiteamDB.dll
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\bin\Debug\ProexiteamDB.pdb
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\obj\Debug\ProexiteamDB.sqlprojAssemblyReference.cache
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\obj\Debug\Model.xml
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\obj\Debug\refactor.xml
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\obj\Debug\postdeploy.sql
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\obj\Debug\predeploy.sql
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\obj\Debug\ProexiteamDB.dll
+D:\Websites\Peroxiteam\peroxiteam\ProexiteamDB\obj\Debug\ProexiteamDB.pdb
