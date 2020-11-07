@@ -10,8 +10,9 @@ namespace peroxiteam.Models
     public class Act
     {
         public int Id { get; set; }
-        [DisplayName("İş/Staj ilanı - İş/Staj ile ilgili Mentor yorumu")]
-        [Required(ErrorMessage = "İşlem türünü giriniz.")]
+        [DisplayName("Adınız")]
+        [Required(ErrorMessage = "Adınızı giriniz.")]
+        public string NameOfActor { get; set; }
         public string Type { get; set; }
         [DisplayName("Başlık")]
         [Required(ErrorMessage = "İşleminiz için başlık türünü giriniz.")]

@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLibrary.Models;
+using System.Runtime.CompilerServices;
 
 namespace DataLibrary.DataProcessor
 {
     public class ActProcessor
     {
         public static int CreateAct(int id, string type, string name, string category,
-                string descriptopn, string comments, string imagePth)
+                string descriptopn, string comments, string imagePth, string nameOfActor)
         {
             Act data = new Act
             {
@@ -22,6 +23,7 @@ namespace DataLibrary.DataProcessor
                 Description = descriptopn,
                 Comments = comments,
                 ImagePath = imagePth,
+                NameOfActor = nameOfActor,
             };
             string sql = @"insert into dbo.Act (Id, Name, Type, Category, Description, Comments, ImagePath)
                          values (@Id, @Name, @Type, @Category, @Description, @Comments, @ImagePath);";
@@ -31,10 +33,10 @@ namespace DataLibrary.DataProcessor
 
 
 
-        public static List<Act> LoadModels()
+        public static List<Act> LoadModels(string Type)
         {
             string sql = @"select Id, Name, Type, Category, Description, Comments, ImagePath
-                          from dbo.Act;";
+                          from dbo.Act where Type='"+Type+"';";
             return SqlDataAccess.LoadData<Act>(sql);
         }
 

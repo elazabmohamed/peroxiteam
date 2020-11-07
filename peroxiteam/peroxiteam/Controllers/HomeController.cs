@@ -129,8 +129,7 @@ namespace peroxiteam.Controllers
             Random r = new Random();
             int rInt = r.Next(0, 3); 
 
-            model.Tag = "~/Content/rozetler/" + rInt.ToString().Trim() + ".png";
-                            
+            model.Tag = "~/Content/rozetler/" + rInt.ToString().Trim() + ".png";           
 
             if (ModelState.IsValid)
             {

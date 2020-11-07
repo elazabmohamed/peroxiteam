@@ -97,11 +97,15 @@ namespace peroxiteam.Controllers
                 ViewBag.Message = "Lütfen bir dosyayı seçin";
             }
 
+            model.Type = "Staj";
 
-
+            if (model.ImagePath == null)
+            {
+                model.ImagePath = "/Content/bgImage/yorum.jpg";
+            }
             if (ModelState.IsValid)
             {
-                int recordsCreated = CreateAct(model.Id, model.Type, model.Name, model.Category, model.Description, model.Comments, model.ImagePath);
+                int recordsCreated = CreateAct(model.Id, model.Type, model.Name, model.Category, model.Description, model.Comments, model.ImagePath, model.NameOfActor);
                 return RedirectToAction("Index", "Company");
             }
 

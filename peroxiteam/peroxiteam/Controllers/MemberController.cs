@@ -21,7 +21,7 @@ namespace peroxiteam.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Staj - İş ilanları";
-            var data = DataLibrary.DataProcessor.ActProcessor.LoadModels();
+            var data = DataLibrary.DataProcessor.ActProcessor.LoadModels("Staj");
             List<Act> models = new List<Act>();
 
             foreach (var row in data)
@@ -34,7 +34,8 @@ namespace peroxiteam.Controllers
                     Category = row.Category,
                     Description = row.Description,
                     Comments = row.Comments, 
-                    ImagePath = row.ImagePath
+                    ImagePath = row.ImagePath,
+                    NameOfActor = row.NameOfActor
                 });
             }
             return View(models);
@@ -55,16 +56,11 @@ namespace peroxiteam.Controllers
             return View();
         }
 
+
         public ActionResult ViewComments()
         {
-            
-
-            return View();
-        }
-        public ActionResult ViewActs()
-        {
             ViewBag.Message = "Staj - İş ilanları";
-            var data = DataLibrary.DataProcessor.ActProcessor.LoadModels();
+            var data = DataLibrary.DataProcessor.ActProcessor.LoadModels("Yorum");
             List<Act> models = new List<Act>();
 
             foreach (var row in data)
@@ -77,7 +73,53 @@ namespace peroxiteam.Controllers
                     Category = row.Category,
                     Description = row.Description,
                     Comments = row.Comments,
-                    ImagePath = row.ImagePath
+                    ImagePath = row.ImagePath,
+                    NameOfActor = row.NameOfActor
+                });
+            }
+            return View(models);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddAct(Act model)
+        {
+            model.Type = "Yorum";
+
+            if (model.ImagePath == null)
+            {
+                model.ImagePath = "/Content/bgImage/yorum.jpg";
+            }
+            if (ModelState.IsValid)
+            {
+                int recordsCreated = CreateAct(model.Id, model.Type, model.Name, model.Category, model.Description, model.Comments, model.ImagePath, model.NameOfActor);
+                return RedirectToAction("Index", "Company");
+            }
+
+            return View();
+        }
+
+
+
+        public ActionResult ViewActs()
+        {
+            ViewBag.Message = "Staj - İş ilanları";
+            var data = DataLibrary.DataProcessor.ActProcessor.LoadModels("Staj");
+            List<Act> models = new List<Act>();
+
+            foreach (var row in data)
+            {
+                models.Add(new Act
+                {
+                    Id = row.Id,
+                    Name = row.Name,
+                    Type = row.Type,
+                    Category = row.Category,
+                    Description = row.Description,
+                    Comments = row.Comments,
+                    ImagePath = row.ImagePath,
+                    NameOfActor = row.NameOfActor
                 });
             }
             return View(models);
@@ -101,7 +143,8 @@ namespace peroxiteam.Controllers
                     Category = row.Category,
                     Description = row.Description,
                     Comments = row.Comments, 
-                    ImagePath = row.ImagePath
+                    ImagePath = row.ImagePath,
+                    NameOfActor = row.NameOfActor
                 });
             }
             return View(models);
@@ -112,16 +155,6 @@ namespace peroxiteam.Controllers
 
         public ActionResult Apply(int id)
         {
-
-
-            return View();
-        }
-
-
-        public ActionResult AddComment()
-        {
-
-
             return View();
         }
 

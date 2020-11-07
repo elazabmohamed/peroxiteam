@@ -15,5 +15,7 @@ namespace DataLibrary.Models
         public string Description { get; set; }
         public string Comments { get; set; }
         public string ImagePath { get; set; }
+
+        public string NameOfActor { get; set; }
     }
 }

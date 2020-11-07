@@ -1,12 +1,42 @@
-﻿
+﻿@model IEnumerable<peroxiteam.Models.Act>
+
 @{
     ViewBag.Title = "Mentör yorumları";
-    // 
-    //          bu sayfa tamamen static, ilerde diğer sayfalar gibi geliştirilecektir
+    //
+    //          bu sayfanın ilk kısmı hariç dinamik değil, sitenin amacını göstermek için bilgi blokları eklendi.
     //
 }
 
 <h2>Mentör Yorumları</h2>
+
+@foreach (var item in Model)
+{
+    <table class="table" style="max-width: 300px; display: inline;">
+        <tr>
+            <td>
+                <div class="card mb-3" style="width: 300px; height:600px">
+                    <h5 class="card-header">@item.NameOfActor</h5>
+
+                    <div class="">
+                        <a href='@Url.Action("ViewAct", "Member", new { id = item.Id })'>
+                            <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                        </a>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(modelItem => item.Name)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Category) : @Html.DisplayFor(modelItem => item.Category)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(modelItem => item.Description)</li>
+                    </ul>
+                    <div class="card-body">
+                        <a class="card-link"> @Html.ActionLink("İncele", "ViewAct", new { id = item.Id })</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+
 
 <table class="table" style="max-width: 300px; display: inline;">
     <tr>
@@ -14,7 +44,7 @@
             <div class="card mb-3" style="width: 300px; height:700px">
                 <h5 class="card-header">Had Fad</h5>
                 <div class="">
-                        <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                    <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
                 </div>
 
                 <ul class="list-group list-group-flush">
