@@ -7,12 +7,12 @@
 {
     ViewBag.Title = item.Name + item.SurName;
     TempData["ID_FOR_MODEL"] = item.Id;
-    TempData["NAME_FOR_MODEL"] = item.Name+item.SurName;
+    TempData["NAME_FOR_MODEL"] = item.Name+" "+item.SurName;
 
     <div class="row">
         <div class="container" style="display: flex;">
             <div class="jumbotron col-md-6" style="max-width: 50%; border:10px;">
-                <h1 class="display-3 ">@Html.DisplayFor(modelItem => item.Name)</h1>
+                <h1 class="display-3 ">@Html.DisplayFor(modelItem => item.Name), @Html.DisplayFor(modelItem => item.SurName) </h1>
                 <p class="lead">
                     <ul class=" my-4" style="max-width: 300px; display: inline;">
                         <li class="list-group-item">@Html.DisplayNameFor(model => model.University) : @Html.DisplayFor(modelItem => item.University)</li>

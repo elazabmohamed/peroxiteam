@@ -183,6 +183,11 @@
     <Content Include="Views\Company\AddAct.cshtml" />
     <Content Include="Views\Company\ViewCandidates.cshtml" />
     <Content Include="Views\Company\ViewCandidate.cshtml" />
+    <Content Include="Views\Member\About.cshtml" />
+    <Content Include="Views\Member\Contact.cshtml" />
+    <Content Include="Views\Company\About.cshtml" />
+    <Content Include="Views\Company\Contact.cshtml" />
+    <Content Include="Views\Member\ViewComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

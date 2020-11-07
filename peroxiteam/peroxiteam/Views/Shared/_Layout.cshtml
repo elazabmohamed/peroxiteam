@@ -37,34 +37,40 @@
         @if (Session["Student_Email"] != null)
         {
 
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link"></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link">@Html.ActionLink("Ana Sayfa", "Index", "Member")<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">@Html.ActionLink("Staj ara", "ViewModels", "Member")</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">@Html.ActionLink("Hakkımızda", "About", "Member")</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">@Html.ActionLink("İletişim", "Contact", "Member")</a>
-                </li>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link"></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">@Html.ActionLink("Ana Sayfa", "Index", "Member")<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">@Html.ActionLink("Majority Contest", "RozetContest", "Member")</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">@Html.ActionLink("Mentör yorumları", "ViewComments", "Member")</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">@Html.ActionLink("Mentör ol", "AddAct", "Member")</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">@Html.ActionLink("Hakkımızda", "About", "Member")</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">@Html.ActionLink("İletişim", "Contact", "Member")</a>
+            </li>
 
-                @using (Html.BeginForm("Ara", "Member"))
-                {
-                    @Html.AntiForgeryToken()
-                    <li class="nav-item">
-                        <a class="form-inline my-2 my-lg-0" style="display:inline;">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
-                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                        </a>
-                    </li>
-                }
-            </ul>
+            @using (Html.BeginForm("Ara", "Member"))
+            {
+                @Html.AntiForgeryToken()
+                <li class="nav-item">
+                    <a class="form-inline my-2 my-lg-0" style="display:inline;">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </a>
+                </li>
+            }
+        </ul>
             <ul class="navbar-nav mr-auto navbar-right">
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0">
@@ -112,20 +118,6 @@
             </li>
         }
         </ul>
-        <ul class="navbar-nav mr-auto navbar-right">
-            <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-secondary my-2 my-sm-0">@Html.ActionLink("Hi! " + Session["Company_Email"].ToString(), "Index", "Member")</button>
-                </form>
-            </li>
-            <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline-danger">@Html.ActionLink("Log off", "LogOff", "Member")</button>
-                </form>
-            </li>
-
-        </ul>
-
 
             <ul class="navbar-nav mr-auto navbar-right">
                 <li class="nav-item">
