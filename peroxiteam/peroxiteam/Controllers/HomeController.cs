@@ -127,9 +127,9 @@ namespace peroxiteam.Controllers
             ///         Şimdilik rastgele atanıyor
             ///         
             Random r = new Random();
-            int rInt = r.Next(0, 3); 
+            int rInt = r.Next(1, 4); 
 
-            model.Tag = "~/Content/rozetler/" + rInt.ToString().Trim() + ".png";           
+            model.Tag = "/Content/rozetler/" + rInt.ToString().Trim() + ".png";           
 
             if (ModelState.IsValid)
             {
@@ -189,9 +189,9 @@ namespace peroxiteam.Controllers
             ///         Şimdilik rastgele atanıyor
             ///         
             Random r = new Random();
-            int rInt = r.Next(0, 3);
+            int rInt = r.Next(1, 4);
 
-            model.Tag = "~/Content/rozetler/" + rInt.ToString().Trim() + ".png";
+            model.Tag = "/Content/rozetler/" + rInt.ToString().Trim() + ".png";
 
             if (ModelState.IsValid)
             {

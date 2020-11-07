@@ -16,12 +16,6 @@
             <td>
                 <div class="card mb-3" style="width: 300px; height:600px">
                     <h5 class="card-header">@item.Name @item.SurName  <img style="height: 30px; width: 20px; display: block; float:right;" src=@item.Tag></h5>
-                    <!--
-                    <div class="card-body">
-                        <h6 class="card-subtitle text-muted">Rozet:</h6>
-                        <img style="height: 30px; width: 20px; display: block;" src=@item.Tag>
-                    </div>
-                        -->
                     <div class="">
                         <a href='@Url.Action("ViewCandidate", "Company", new { id = item.Id })'>
                             <img style="height: 300px; width: 300px; display: block;" src=@item.ImagePath class="spells " alt="Card image">

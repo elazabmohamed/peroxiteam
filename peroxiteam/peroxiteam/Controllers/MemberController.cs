@@ -177,6 +177,7 @@ namespace peroxiteam.Controllers
                 {
                     Id = row.Id,
                     CompanyName = row.CompanyName,
+                    CompanyMail = row.CompanyMail,
                     Tag = row.Tag,
                 });
             }

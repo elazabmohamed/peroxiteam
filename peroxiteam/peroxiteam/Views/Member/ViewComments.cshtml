@@ -8,132 +8,132 @@
 }
 
 <h2>Mentör Yorumları</h2>
+<h>
 
-@foreach (var item in Model)
-{
     <table class="table" style="max-width: 300px; display: inline;">
         <tr>
             <td>
-                <div class="card mb-3" style="width: 300px; height:600px">
-                    <h5 class="card-header">@item.NameOfActor</h5>
-
+                <div class="card mb-3" style="width: 300px; height:700px">
+                    <h5 class="card-header">Had Fad</h5>
                     <div class="">
-                        <a href='@Url.Action("ViewAct", "Member", new { id = item.Id })'>
-                            <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
-                        </a>
+                        <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
                     </div>
 
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(modelItem => item.Name)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Category) : @Html.DisplayFor(modelItem => item.Category)</li>
-                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(modelItem => item.Description)</li>
+                        <li class="list-group-item">Şirket Adı : ABC Şirketi</li>
+                        <li class="list-group-item">Ofis Adı : Red SeniJuni Office</li>
+                        <li class="list-group-item">Bölüm : Pazarlama</li>
+                        <li class="list-group-item">Gün sayısı: 25</li>
+                        <li class="list-group-item">Staj yararı: 10/7</li>
+                        <li class="list-group-item">Staj katkıları: 10/10</li>
+                        <li class="list-group-item">Çok başarılı bir dönem geçirdim.</li>
+
                     </ul>
-                    <div class="card-body">
-                        <a class="card-link"> @Html.ActionLink("İncele", "ViewAct", new { id = item.Id })</a>
-                    </div>
                 </div>
             </td>
         </tr>
     </table>
-}
 
 
-<table class="table" style="max-width: 300px; display: inline;">
-    <tr>
-        <td>
-            <div class="card mb-3" style="width: 300px; height:700px">
-                <h5 class="card-header">Had Fad</h5>
-                <div class="">
-                    <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+    <table class="table" style="max-width: 300px; display: inline;">
+        <tr>
+            <td>
+                <div class="card mb-3" style="width: 300px; height:700px">
+                    <h5 class="card-header">Zad Yad</h5>
+                    <div class="">
+                        <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Şirket Adı : ABC Şirketi</li>
+                        <li class="list-group-item">Ofis Adı : Red SeniJuni Office</li>
+                        <li class="list-group-item">Bölüm : Bilişim</li>
+                        <li class="list-group-item">Gün sayısı: 20</li>
+                        <li class="list-group-item">Staj yararı: 10/8</li>
+                        <li class="list-group-item">Staj katkıları: 10/10</li>
+                        <li class="list-group-item">Çok başarılı bir dönem geçirdim.</li>
+
+                    </ul>
                 </div>
+            </td>
+        </tr>
+    </table>
 
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Şirket Adı : ABC Şirketi</li>
-                    <li class="list-group-item">Ofis Adı : Red SeniJuni Office</li>
-                    <li class="list-group-item">Bölüm : Pazarlama</li>
-                    <li class="list-group-item">Gün sayısı: 25</li>
-                    <li class="list-group-item">Staj yararı: 10/7</li>
-                    <li class="list-group-item">Staj katkıları: 10/10</li>
-                    <li class="list-group-item">Çok başarılı bir dönem geçirdim.</li>
+    <table class="table" style="max-width: 300px; display: inline;">
+        <tr>
+            <td>
+                <div class="card mb-3" style="width: 300px; height:700px">
+                    <h5 class="card-header">Ora dan</h5>
+                    <div class="">
+                        <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                    </div>
 
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Şirket Adı : ABC Şirketi</li>
+                        <li class="list-group-item">Ofis Adı : Blue SeniJuni Office</li>
+                        <li class="list-group-item">Bölüm : Hukuk </li>
+                        <li class="list-group-item">Gün sayısı: 40</li>
+                        <li class="list-group-item">Staj yararı: 10/3</li>
+                        <li class="list-group-item">Staj katkıları: 10/5</li>
+                        <li class="list-group-item">Firma bazlı çok başarısız bir staj dönemi geçirdim.</li>
 
-
-<table class="table" style="max-width: 300px; display: inline;">
-    <tr>
-        <td>
-            <div class="card mb-3" style="width: 300px; height:700px">
-                <h5 class="card-header">Zad Yad</h5>
-                <div class="">
-                    <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                    </ul>
                 </div>
+            </td>
+        </tr>
+    </table>
 
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Şirket Adı : ABC Şirketi</li>
-                    <li class="list-group-item">Ofis Adı : Red SeniJuni Office</li>
-                    <li class="list-group-item">Bölüm : Bilişim</li>
-                    <li class="list-group-item">Gün sayısı: 20</li>
-                    <li class="list-group-item">Staj yararı: 10/8</li>
-                    <li class="list-group-item">Staj katkıları: 10/10</li>
-                    <li class="list-group-item">Çok başarılı bir dönem geçirdim.</li>
+    <table class="table" style="max-width: 300px; display: inline;">
+        <tr>
+            <td>
+                <div class="card mb-3" style="width: 300px; height:700px">
+                    <h5 class="card-header">Had Fad</h5>
+                    <div class="">
+                        <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                    </div>
 
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Şirket Adı : MMM University </li>
+                        <li class="list-group-item">Ofis Adı : Yellow SeniJuni Office</li>
+                        <li class="list-group-item">Bölüm : Bilgisayar Mühendislği</li>
+                        <li class="list-group-item">Gün sayısı: 25</li>
+                        <li class="list-group-item">Staj yararı: 10/5</li>
+                        <li class="list-group-item">Staj katkıları: 10/5</li>
+                        <li class="list-group-item">İyi bir dönem geçirdim.</li>
 
-<table class="table" style="max-width: 300px; display: inline;">
-    <tr>
-        <td>
-            <div class="card mb-3" style="width: 300px; height:700px">
-                <h5 class="card-header">Ora dan</h5>
-                <div class="">
-                    <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                    </ul>
                 </div>
+            </td>
+        </tr>
+    </table>
 
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Şirket Adı : ABC Şirketi</li>
-                    <li class="list-group-item">Ofis Adı : Blue SeniJuni Office</li>
-                    <li class="list-group-item">Bölüm : Hukuk </li>
-                    <li class="list-group-item">Gün sayısı: 40</li>
-                    <li class="list-group-item">Staj yararı: 10/3</li>
-                    <li class="list-group-item">Staj katkıları: 10/5</li>
-                    <li class="list-group-item">Firma bazlı çok başarısız bir staj dönemi geçirdim.</li>
+    @foreach (var item in Model)
+    {
+        <table class="table" style="max-width: 300px; display: inline;">
+            <tr>
+                <td>
+                    <div class="card mb-3" style="width: 300px; min-height:700px">
+                        <h5 class="card-header">@item.NameOfActor</h5>
 
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
+                        <div class="">
+                            <a href='@Url.Action("ViewAct", "Member", new { id = item.Id })'>
+                                <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
+                            </a>
+                        </div>
 
-<table class="table" style="max-width: 300px; display: inline;">
-    <tr>
-        <td>
-            <div class="card mb-3" style="width: 300px; height:700px">
-                <h5 class="card-header">Had Fad</h5>
-                <div class="">
-                    <img style="height: 300px; width: 300px; display: block;" src=~/Content/bgImage/yorum.jpg class="spells " alt="Card image">
-                </div>
-
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Şirket Adı : MMM University </li>
-                    <li class="list-group-item">Ofis Adı : Yellow SeniJuni Office</li>
-                    <li class="list-group-item">Bölüm : Bilgisayar Mühendislği</li>
-                    <li class="list-group-item">Gün sayısı: 25</li>
-                    <li class="list-group-item">Staj yararı: 10/5</li>
-                    <li class="list-group-item">Staj katkıları: 10/5</li>
-                    <li class="list-group-item">İyi bir dönem geçirdim.</li>
-
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">@Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(modelItem => item.Name)</li>
+                            <li class="list-group-item">@Html.DisplayNameFor(model => model.Category) : @Html.DisplayFor(modelItem => item.Category)</li>
+                            <li class="list-group-item">@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(modelItem => item.Description)</li>
+                        </ul>
+                        <div class="card-body">
+                            <a class="card-link"> @Html.ActionLink("İncele", "ViewAct", new { id = item.Id })</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
 
 
 
