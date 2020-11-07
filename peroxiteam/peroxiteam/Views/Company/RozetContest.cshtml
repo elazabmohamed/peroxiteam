@@ -1,0 +1,57 @@
+﻿@model IEnumerable<peroxiteam.Models.Student>
+
+@{
+    ViewBag.Title = "Rozet Contest";
+}
+
+<h2>Rozet Contest - Öğrenciler </h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Rozet
+        </th>
+        <th>
+            Ad-Soyad
+        </th>
+        <th>
+            Üniversite
+        </th>
+        <th>
+            Durum
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CvPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <img style="height: 30px; width: 20px; display: block;" src=@item.Tag>
+    </td>
+    <td>
+        @item.Name, @item.SurName
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.University)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StudentState)
+    </td>
+
+    <td>
+        <a href="@item.CvPath" download>CV</a>
+    </td>
+    <td>
+        <img style="height: 50px; width: 50px; display: block;" src=@item.ImagePath>
+    </td>
+</tr>
+}
+
+</table>

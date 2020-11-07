@@ -78,13 +78,10 @@ namespace peroxiteam.Controllers
                        Regex.Replace(Path.GetFileName(ModelImage.FileName), @"\s+", "_"));
 
                     ModelImage.SaveAs(imagePath);
-                    //Saving info to database model
 
                     model.ImagePath = "/Content/Acts/" + CreateFolderforModel + "/Image/" + Regex.Replace(Path.GetFileName(ModelImage.FileName), @"\s+", "_");
 
 
-
-                    //model.ImagePath = "/Content/Models/" + CreateFolderforModel + "/Image/" + Regex.Replace(Path.GetFileName(ModelImage.FileName), @"\s+", "_");
                     ViewBag.Message = "Act's image uploaded successfully";
 
                 }
@@ -166,6 +163,29 @@ namespace peroxiteam.Controllers
             }
             return View(models);
         }
+
+
+        public ActionResult RozetContest()
+        {
+            var data = DataLibrary.DataProcessor.StudentProcessor.LoadModels();
+            List<Student> models = new List<Student>();
+
+            foreach (var row in data)
+            {
+                models.Add(new Student
+                {
+                    Id = row.Id,
+                    Name = row.Name,
+                    SurName = row.SurName,
+                    Tag = row.Tag,
+                    University = row.University,
+                    CvPath = row.CvPath,
+                    ImagePath = row.ImagePath
+                });
+            }
+            return View(models);
+        }
+
 
 
 

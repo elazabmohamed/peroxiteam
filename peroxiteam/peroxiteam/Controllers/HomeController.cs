@@ -184,6 +184,15 @@ namespace peroxiteam.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUpCompany(Company model)
         {
+
+            ///         tag=rozet, ilerde staj tecrübelerine göre sınıflandırılarak her öğrenciye bir rozet atanacak. 
+            ///         Şimdilik rastgele atanıyor
+            ///         
+            Random r = new Random();
+            int rInt = r.Next(0, 3);
+
+            model.Tag = "~/Content/rozetler/" + rInt.ToString().Trim() + ".png";
+
             if (ModelState.IsValid)
             {
                 int recordsCreated = CreateCompany(model.Id, model.CompanyName,model.CompanyMail, model.Password, model.Tag);

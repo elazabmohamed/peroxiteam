@@ -25,8 +25,8 @@ namespace DataLibrary.DataProcessor
                 ImagePath = imagePth,
                 NameOfActor = nameOfActor,
             };
-            string sql = @"insert into dbo.Act (Id, Name, Type, Category, Description, Comments, ImagePath)
-                         values (@Id, @Name, @Type, @Category, @Description, @Comments, @ImagePath);";
+            string sql = @"insert into dbo.Act (Id, Name, Type, Category, Description, Comments, ImagePath, NameOfActor)
+                         values (@Id, @Name, @Type, @Category, @Description, @Comments, @ImagePath, @NameOfActor);";
             return SqlDataAccess.SaveData(sql, data);
         }
 
@@ -35,7 +35,7 @@ namespace DataLibrary.DataProcessor
 
         public static List<Act> LoadModels(string Type)
         {
-            string sql = @"select Id, Name, Type, Category, Description, Comments, ImagePath
+            string sql = @"select Id, Name, Type, Category, Description, Comments, ImagePath, NameOfActor
                           from dbo.Act where Type='"+Type+"';";
             return SqlDataAccess.LoadData<Act>(sql);
         }
@@ -45,7 +45,7 @@ namespace DataLibrary.DataProcessor
 
         public static List<Act> LoadSpecificModel(int id)
         {
-            string sql = @"select Id, Name, Type, Category, Description, Comments, ImagePath
+            string sql = @"select Id, Name, Type, Category, Description, Comments, ImagePath, NameOfActor
                           from dbo.Act where Id='" + id + "';";
             return SqlDataAccess.LoadData<Act>(sql);
         }

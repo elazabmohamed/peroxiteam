@@ -11,6 +11,8 @@ using static DataLibrary.DataProcessor.ActProcessor;
 using System.Web.SessionState;
 using peroxiteam.SessionAttirbute;
 using Act = peroxiteam.Models.Act;
+using Student = peroxiteam.Models.Student;
+using Company = peroxiteam.Models.Company;
 
 namespace peroxiteam.Controllers
 {
@@ -29,13 +31,13 @@ namespace peroxiteam.Controllers
                 models.Add(new Act
                 {
                     Id = row.Id,
+                    NameOfActor = row.NameOfActor,
                     Name = row.Name,
                     Type = row.Type,
                     Category = row.Category,
                     Description = row.Description,
                     Comments = row.Comments, 
-                    ImagePath = row.ImagePath,
-                    NameOfActor = row.NameOfActor
+                    ImagePath = row.ImagePath
                 });
             }
             return View(models);
@@ -81,6 +83,10 @@ namespace peroxiteam.Controllers
         }
 
 
+        public ActionResult AddAct()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddAct(Act model)
@@ -158,6 +164,26 @@ namespace peroxiteam.Controllers
             return View();
         }
 
+
+
+        public ActionResult RozetContest()
+        {
+            var data = DataLibrary.DataProcessor.CompanyProcessor.LoadModels();
+            List<Company> models = new List<Company>();
+
+            foreach (var row in data)
+            {
+                models.Add(new Company
+                {
+                    Id = row.Id,
+                    CompanyName = row.CompanyName,
+                    Tag = row.Tag,
+                });
+            }
+            return View(models);
+        }
+
+        
 
 
 
