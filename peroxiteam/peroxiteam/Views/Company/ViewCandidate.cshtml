@@ -2,12 +2,11 @@
 
 
 
-
 @foreach (var item in Model)
 {
     ViewBag.Title = item.Name + item.SurName;
     TempData["ID_FOR_MODEL"] = item.Id;
-    TempData["NAME_FOR_MODEL"] = item.Name+" "+item.SurName;
+    TempData["NAME_FOR_MODEL"] = item.Name + " " + item.SurName;
 
     <div class="row">
         <div class="container" style="display: flex;">

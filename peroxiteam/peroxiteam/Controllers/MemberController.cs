@@ -16,7 +16,7 @@ using Company = peroxiteam.Models.Company;
 
 namespace peroxiteam.Controllers
 {
-    //[CheckSession]
+    [CheckSession]
     public class MemberController : Controller
     {
 

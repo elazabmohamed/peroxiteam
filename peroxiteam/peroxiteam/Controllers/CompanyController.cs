@@ -15,7 +15,7 @@ using Student = peroxiteam.Models.Student;
 
 namespace peroxiteam.Controllers
 {
-    //[CheckSession]
+    [CheckSession]
     public class CompanyController : Controller
     {
         // GET: Company

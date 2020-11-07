@@ -110,7 +110,7 @@ namespace peroxiteam.Controllers
 
                     ModelFile.SaveAs(modelPath);
 
-                    model.CvPath = "/Content/Student/" + CreateFolderforModel + "/CV/" + Regex.Replace(Path.GetFileName(ModelFile.FileName), @"\s+", "_");
+                    model.CvPath = "/Content/Students/" + CreateFolderforModel + "/CV/" + Regex.Replace(Path.GetFileName(ModelFile.FileName), @"\s+", "_");
 
                     ViewBag.Message = "Model uploaded successfully";
                 }
