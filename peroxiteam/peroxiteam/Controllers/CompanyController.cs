@@ -42,5 +42,11 @@ namespace peroxiteam.Controllers
         }
 
 
+        public ActionResult LogOff()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+
+        }
     }
 }

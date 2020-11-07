@@ -3,6 +3,14 @@
     padding-bottom: 20px;
 }
 
+intro {
+    background-image: url('bgImage/welcome.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

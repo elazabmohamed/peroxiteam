@@ -3,79 +3,177 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - SeniJuni</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @if (Session["Student_Email"] != null)
-                {
-                    @Html.ActionLink("SeniJuni", "Index", "Member", new { area = "" }, new { @class = "navbar-brand" })
-                }
-                else if (Session["Company_Email"] != null)
-                {
-                    @Html.ActionLink("SeniJuni", "Index", "Company", new { area = "" }, new { @class = "navbar-brand" })
-                }
-                else
-                {
-                    @Html.ActionLink("SeniJuni", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                }
-            </div>
-            <div class="navbar-collapse collapse">
-                @if (Session["Student_Email"] != null)
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Member")</li>
-                        <li>@Html.ActionLink("About", "About", "Member")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Member")</li>
-                        <li>@Html.ActionLink("Çıkış yap", "", "Member")</li>
-                    </ul>
-                }
-                else if (Session["Company_Email"] != null)
-                {
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Company")</li>
-                <li>@Html.ActionLink("Staj ekle", "AddAct", "Company")</li>
-                <li>@Html.ActionLink("About", "About", "Company")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Company")</li>
-                <li>@Html.ActionLink("Çıkış yap", "", "Member")</li>
-            </ul>
-                }
-                else
-                {
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Üye ol", "SignUp", "Home")</li>
-                <li>@Html.ActionLink("Giriş yap", "SignIn", "Home")</li>
-                <li>@Html.ActionLink("Firma üyeliği", "SignUpCompany", "Home")</li>
-                <li>@Html.ActionLink("Firma girişi", "SignInCompany", "Home")</li>
-            </ul>
-                }
+<body style="padding: 0; ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        @if (Session["Student_Email"] != null)
+        {
+            <a href='@Url.Action("Index", "Member")'>
+                <img style="height: 70px; width: 70px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
+            </a>
+            <!--
+        @Html.ActionLink("SeniJuni", "Index", "Member", new { area = "" }, new { @class = "navbar-brand" })
+            -->
+        }
+        else if (Session["Company_Email"] != null)
+        {
+            <a href='@Url.Action("Index", "Company")'>
+                <img style="height: 70px; width: 70px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
+            </a>
+        }
+        else
+        {
+            <a href='@Url.Action("Index", "Home")'>
+                <img style="height: 70px; width: 70px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
+            </a>
+        }
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            @if (Session["Student_Email"] != null)
+            {
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">@Html.ActionLink("Home", "Index", "Member")<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Staj ara", "ViewModels", "Member")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("About", "About", "Member")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Contact", "Contact", "Member")</a>
+                    </li>
+
+                    @using (Html.BeginForm("Search", "Member"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li class="nav-item">
+                            <a class="form-inline my-2 my-lg-0" style="display:inline;">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <ul class="navbar-nav mr-auto navbar-right">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-secondary my-2 my-sm-0">@Html.ActionLink("Hi! " + Session["Student_Email"].ToString(), "Index", "Member")</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-outline-danger">@Html.ActionLink("Log off", "LogOff", "Member")</button>
+                        </form>
+                    </li>
+
+                </ul>
+
+            }
+            else if (Session["Company_Email"] != null)
+            {
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">@Html.ActionLink("Home", "Index", "Company")<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Staj ekle", "AddAct", "Company")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Canditates", "ShowCanditate", "Company")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("About", "About", "Company")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Contact", "Contact", "Company")</a>
+                    </li>
+                    @using (Html.BeginForm("Search", "Company"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li class="nav-item">
+                            <a class="form-inline my-2 my-lg-0" style="display:inline;">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <ul class="navbar-nav mr-auto navbar-right">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-secondary my-2 my-sm-0">@Html.ActionLink("Hi! " + Session["Company_Email"].ToString(), "Index", "Member")</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-outline-danger">@Html.ActionLink("Log off", "LogOff", "Company")</button>
+                        </form>
+                    </li>
+
+                </ul>
+            }
+            else
+            {
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">@Html.ActionLink("Home", "Index", "Home")<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Giriş yap", "SignIn", "Home")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Üye ol", "SignUp", "Home")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Firma girişi", "SignInCompany", "Home")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Firma üyeliği", "SignUpCompany", "Home")</a>
+                    </li>
+                    @using (Html.BeginForm("Search", "Home"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li class="nav-item">
+                            <a class="form-inline my-2 my-lg-0" style="display:inline;">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
 
 
-            </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </nav>
+        <div class="container body-content" style="padding-top: 50px;">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - SeniJuni</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
 </body>
 </html>

@@ -70,7 +70,12 @@ namespace peroxiteam.Controllers
             return View(models);
         }
 
+        public ActionResult LogOff()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
 
+        }
 
 
     }
