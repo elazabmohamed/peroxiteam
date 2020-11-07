@@ -1,11 +1,16 @@
 ﻿@model peroxiteam.Models.Company
 
-@using (Html.BeginForm()) 
+@{
+    ViewBag.Title = "Üyel ol";
+}
+
+<h2>SeniJuni olarak üye ol</h2>
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Firma girişi</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

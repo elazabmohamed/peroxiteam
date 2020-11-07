@@ -10,6 +10,7 @@ using static DataLibrary.DataProcessor.ActProcessor;
 using System.Web.SessionState;
 using peroxiteam.SessionAttirbute;
 using Act = peroxiteam.Models.Act;
+using System.Text.RegularExpressions;
 
 namespace peroxiteam.Controllers
 {
@@ -23,6 +24,14 @@ namespace peroxiteam.Controllers
         }
 
 
+
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         public ActionResult AddAct()
         {
             return View();
@@ -30,11 +39,55 @@ namespace peroxiteam.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddAct(Act model)
+        public ActionResult AddAct(Act model, HttpPostedFileBase ModelImage)
         {
+
+            model.Id = int.Parse(RandomString(8));
+
+            string CreateFolderforModel = Regex.Replace(model.Name.Trim() + "-" + model.Id.ToString(), @"\s+", "_");
+
+            while (Directory.Exists(model.Name.Trim() + "-" + model.Id.ToString()))
+            {
+                model.Id = int.Parse(RandomString(8));
+
+                CreateFolderforModel = Regex.Replace(model.Name.Trim() + "-" + model.Id.ToString(), @"\s+", "_");
+            }
+
+
+            Directory.CreateDirectory(Server.MapPath("~/Content/Acts/" + CreateFolderforModel + "/Image/"));
+
+            if (ModelImage != null && ModelImage.ContentLength > 0)
+                try
+                {
+
+                    string imagePath = Path.Combine(Server.MapPath("~/Content/Acts/" + CreateFolderforModel + "/Image/"),
+                       Regex.Replace(Path.GetFileName(ModelImage.FileName), @"\s+", "_"));
+
+                    ModelImage.SaveAs(imagePath);
+                    //Saving info to database model
+
+                    model.ImagePath = "/Content/Acts/" + CreateFolderforModel + "/Image/" + Regex.Replace(Path.GetFileName(ModelImage.FileName), @"\s+", "_");
+
+
+
+                    //model.ImagePath = "/Content/Models/" + CreateFolderforModel + "/Image/" + Regex.Replace(Path.GetFileName(ModelImage.FileName), @"\s+", "_");
+                    ViewBag.Message = "Act's image uploaded successfully";
+
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "Lütfen bir dosyayı seçin";
+            }
+
+
+
             if (ModelState.IsValid)
             {
-                int recordsCreated = CreateAct(model.Id, model.Type, model.Name, model.Category, model.Description, model.Comments);
+                int recordsCreated = CreateAct(model.Id, model.Type, model.Name, model.Category, model.Description, model.Comments, model.ImagePath);
                 return RedirectToAction("Index", "Company");
             }
 

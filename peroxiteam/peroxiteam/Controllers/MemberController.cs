@@ -30,21 +30,23 @@ namespace peroxiteam.Controllers
                 {
                     Id = row.Id,
                     Name = row.Name,
+                    Type = row.Type,
                     Category = row.Category,
                     Description = row.Description,
-                    Comments = row.Comments
+                    Comments = row.Comments, 
+                    ImagePath = row.ImagePath
                 });
             }
             return View(models);
         }
 
-        // GET: Member/Details/5
+       
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Member/Create
+       
         public ActionResult Create()
         {
             return View();
@@ -62,13 +64,46 @@ namespace peroxiteam.Controllers
                 {
                     Id = row.Id,
                     Name = row.Name,
+                    Type = row.Type,
                     Category = row.Category,
                     Description = row.Description,
-                    Comments = row.Comments
+                    Comments = row.Comments,
+                    ImagePath = row.ImagePath
                 });
             }
             return View(models);
         }
+
+
+
+        public ActionResult ViewAct(int id)
+        {
+            ViewBag.Message = "Staj - İş ilanı";
+            var data = DataLibrary.DataProcessor.ActProcessor.LoadSpecificModel(id);
+            List<Act> models = new List<Act>();
+
+            foreach (var row in data)
+            {
+                models.Add(new Act
+                {
+                    Id = row.Id,
+                    Name = row.Name,
+                    Type = row.Type,
+                    Category = row.Category,
+                    Description = row.Description,
+                    Comments = row.Comments, 
+                    ImagePath = row.ImagePath
+                });
+            }
+            return View(models);
+        }
+
+
+
+
+
+
+
 
         public ActionResult LogOff()
         {

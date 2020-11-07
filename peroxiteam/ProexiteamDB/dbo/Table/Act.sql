@@ -6,5 +6,6 @@
     [Category] NVARCHAR(MAX) NULL, 
     [Description] NVARCHAR(MAX) NULL, 
     [Comments] NVARCHAR(MAX) NULL, 
-    [Id] INT NULL
+    [Id] INT NULL, 
+    [ImagePath] NVARCHAR(MAX) NULL
 )

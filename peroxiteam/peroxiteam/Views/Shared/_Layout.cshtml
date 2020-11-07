@@ -15,7 +15,7 @@
         @if (Session["Student_Email"] != null)
         {
             <a href='@Url.Action("Index", "Member")'>
-                <img style="height: 70px; width: 70px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
+                <img style="height: 150px; width: 150px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
             </a>
             <!--
         @Html.ActionLink("SeniJuni", "Index", "Member", new { area = "" }, new { @class = "navbar-brand" })
@@ -24,13 +24,13 @@
         else if (Session["Company_Email"] != null)
         {
             <a href='@Url.Action("Index", "Company")'>
-                <img style="height: 70px; width: 70px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
+                <img style="height: 150px; width: 150px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
             </a>
         }
         else
         {
             <a href='@Url.Action("Index", "Home")'>
-                <img style="height: 70px; width: 70px; display: block;" src="~/Content/bgImage/logo.png" class="spells " alt="Card image">
+                <img style="height: 100px; width: 100px; display: block;" src="~/Content/bgImage/logo.png" class="spells zoom " alt="Card image">
             </a>
         }
         <div class="collapse navbar-collapse" id="navbarColor03">
@@ -42,19 +42,19 @@
                         <a class="nav-link"></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link">@Html.ActionLink("Home", "Index", "Member")<span class="sr-only">(current)</span></a>
+                        <a class="nav-link">@Html.ActionLink("Ana Sayfa", "Index", "Member")<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">@Html.ActionLink("Staj ara", "ViewModels", "Member")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">@Html.ActionLink("About", "About", "Member")</a>
+                        <a class="nav-link">@Html.ActionLink("Hakkımızda", "About", "Member")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">@Html.ActionLink("Contact", "Contact", "Member")</a>
+                        <a class="nav-link">@Html.ActionLink("İletişim", "Contact", "Member")</a>
                     </li>
 
-                    @using (Html.BeginForm("Search", "Member"))
+                    @using (Html.BeginForm("Ara", "Member"))
                     {
                         @Html.AntiForgeryToken()
                         <li class="nav-item">
@@ -87,21 +87,21 @@
                         <a class="nav-link"></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link">@Html.ActionLink("Home", "Index", "Company")<span class="sr-only">(current)</span></a>
+                        <a class="nav-link">@Html.ActionLink("Ana Sayfa", "Index", "Company")<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">@Html.ActionLink("Staj ekle", "AddAct", "Company")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">@Html.ActionLink("Canditates", "ShowCanditate", "Company")</a>
+                        <a class="nav-link">@Html.ActionLink("Adaylar", "ShowCanditate", "Company")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">@Html.ActionLink("About", "About", "Company")</a>
+                        <a class="nav-link">@Html.ActionLink("Hakımızda", "About", "Company")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">@Html.ActionLink("Contact", "Contact", "Company")</a>
+                        <a class="nav-link">@Html.ActionLink("İletişim", "Contact", "Company")</a>
                     </li>
-                    @using (Html.BeginForm("Search", "Company"))
+                    @using (Html.BeginForm("Ara", "Company"))
                     {
                         @Html.AntiForgeryToken()
                         <li class="nav-item">
@@ -115,12 +115,12 @@
                 <ul class="navbar-nav mr-auto navbar-right">
                     <li class="nav-item">
                         <form class="form-inline my-2 my-lg-0">
-                            <button class="btn btn-secondary my-2 my-sm-0">@Html.ActionLink("Hi! " + Session["Company_Email"].ToString(), "Index", "Member")</button>
+                            <button class="btn btn-secondary my-2 my-sm-0">@Html.ActionLink("Merhaba! " + Session["Company_Email"].ToString(), "Index", "Member")</button>
                         </form>
                     </li>
                     <li class="nav-item">
                         <form class="form-inline my-2 my-lg-0">
-                            <button class="btn btn-outline-danger">@Html.ActionLink("Log off", "LogOff", "Company")</button>
+                            <button class="btn btn-outline-danger">@Html.ActionLink("Çıkış yap", "LogOff", "Company")</button>
                         </form>
                     </li>
 
@@ -133,7 +133,7 @@
                         <a class="nav-link"></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link">@Html.ActionLink("Home", "Index", "Home")<span class="sr-only">(current)</span></a>
+                        <a class="nav-link">@Html.ActionLink("Ana Sayfa", "Index", "Home")<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">@Html.ActionLink("Giriş yap", "SignIn", "Home")</a>
@@ -142,18 +142,18 @@
                         <a class="nav-link">@Html.ActionLink("Üye ol", "SignUp", "Home")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">@Html.ActionLink("Firma girişi", "SignInCompany", "Home")</a>
+                        <a class="nav-link">@Html.ActionLink("SeniJuni girişi", "SignInCompany", "Home")</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">@Html.ActionLink("Firma üyeliği", "SignUpCompany", "Home")</a>
+                        <a class="nav-link">@Html.ActionLink("SeniJuni üyeliği", "SignUpCompany", "Home")</a>
                     </li>
-                    @using (Html.BeginForm("Search", "Home"))
+                    @using (Html.BeginForm("Ara", "Home"))
                     {
                         @Html.AntiForgeryToken()
                         <li class="nav-item">
                             <a class="form-inline my-2 my-lg-0" style="display:inline;">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
-                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                                <input class="form-control mr-sm-2" type="text" placeholder="Ara" name="tag">
+                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Ara</button>
                             </a>
                         </li>
                     }

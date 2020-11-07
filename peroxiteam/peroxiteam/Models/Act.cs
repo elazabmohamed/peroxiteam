@@ -27,5 +27,9 @@ namespace peroxiteam.Models
 
         public string Comments { get; set; }
 
+        [DisplayName("Resim")]
+
+        public string ImagePath { get; set; }
+
     }
 }

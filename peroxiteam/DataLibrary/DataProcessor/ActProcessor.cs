@@ -11,7 +11,7 @@ namespace DataLibrary.DataProcessor
     public class ActProcessor
     {
         public static int CreateAct(int id, string type, string name, string category,
-                string descriptopn, string comments)
+                string descriptopn, string comments, string imagePth)
         {
             Act data = new Act
             {
@@ -21,9 +21,10 @@ namespace DataLibrary.DataProcessor
                 Category = category,
                 Description = descriptopn,
                 Comments = comments,
+                ImagePath = imagePth,
             };
-            string sql = @"insert into dbo.Act (Id, Name, Type, Category, Description, Comments)
-                         values (@Id, @Name, @Type, @Category, @Description, @Comments);";
+            string sql = @"insert into dbo.Act (Id, Name, Type, Category, Description, Comments, ImagePath)
+                         values (@Id, @Name, @Type, @Category, @Description, @Comments, @ImagePath);";
             return SqlDataAccess.SaveData(sql, data);
         }
 
@@ -32,10 +33,21 @@ namespace DataLibrary.DataProcessor
 
         public static List<Act> LoadModels()
         {
-            string sql = @"select Id, Name, Type, Category, Description, Comments
+            string sql = @"select Id, Name, Type, Category, Description, Comments, ImagePath
                           from dbo.Act;";
             return SqlDataAccess.LoadData<Act>(sql);
         }
+
+
+
+
+        public static List<Act> LoadSpecificModel(int id)
+        {
+            string sql = @"select Id, Name, Type, Category, Description, Comments, ImagePath
+                          from dbo.Act where Id='" + id + "';";
+            return SqlDataAccess.LoadData<Act>(sql);
+        }
+
 
 
     }

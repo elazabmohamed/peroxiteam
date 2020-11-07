@@ -1,0 +1,55 @@
+﻿@model IEnumerable<peroxiteam.Models.Act>
+
+
+
+@foreach (var item in Model)
+{
+    ViewBag.Title = "Staj: " + item.Id;
+    TempData["ID_FOR_MODEL"] = item.Id;
+    TempData["NAME_FOR_MODEL"] = item.Name;
+
+    <div class="row">
+        <div class="container" style="display: flex;">
+            <div class="jumbotron col-md-6" style="max-width: 50%; border:10px;">
+                <h1 class="display-3 ">@Html.DisplayFor(modelItem => item.Name)</h1>
+                <p class="lead">
+                    <ul class=" my-4" style="max-width: 300px; display: inline;">
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Type) : @Html.DisplayFor(modelItem => item.Type)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Category) : @Html.DisplayFor(modelItem => item.Category)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(modelItem => item.Description)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Comments) : @Html.DisplayFor(modelItem => item.Comments)</li>
+                    </ul>
+                </p>
+                <hr class="my-4">
+                <p class="lead text-center">
+                    <a>@Html.ActionLink("Başvur", "Apply", new { id = item.Id })</a>
+                </p>
+
+            </div>
+
+
+
+
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <div class="jumbotron col-md-6 right " style="max-width: 100%; border:10px;">
+                <h1 class="lead" style="margin-top:50px;">ID: @item.Id</h1>
+
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active ">
+                        <img src=@item.ImagePath style="height:400px; width:500px; display: block; margin-top:104px; " class="" alt="Card image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+
+
+

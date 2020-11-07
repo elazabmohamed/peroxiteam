@@ -11,5 +11,6 @@
     [Password] NVARCHAR(100) NOT NULL, 
     [StudentState] NCHAR(10) NULL, 
     [Tag] NCHAR(10) NULL, 
-    [Id] INT NULL
+    [Id] INT NULL, 
+    [CvPath] NVARCHAR(MAX) NULL
 )

@@ -84,7 +84,6 @@ namespace peroxiteam.Controllers
 
                     Session["Student_Email"] = model.UniversityMail;
                     return RedirectToAction("Index", "Member");
-                 //  return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -135,7 +134,6 @@ namespace peroxiteam.Controllers
 
                     Session["Company_Email"] = model.UniversityMail;
                     return RedirectToAction("Index", "Company");
-                    //  return RedirectToAction("Index", "Home");
                 }
                 else
                 {
