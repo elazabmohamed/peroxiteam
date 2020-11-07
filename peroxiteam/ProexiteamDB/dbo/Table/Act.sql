@@ -7,5 +7,6 @@
     [Description] NVARCHAR(MAX) NULL, 
     [Comments] NVARCHAR(MAX) NULL, 
     [Id] INT NULL, 
-    [ImagePath] NVARCHAR(MAX) NULL
+    [ImagePath] NVARCHAR(MAX) NULL, 
+    [Duration] NVARCHAR(50) NULL
 )

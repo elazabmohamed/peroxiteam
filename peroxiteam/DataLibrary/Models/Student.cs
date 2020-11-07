@@ -19,5 +19,8 @@ namespace DataLibrary.Models
         public string Password { get; set; }
         public string StudentState { get; set; }
         public string Tag { get; set; }
+        public string CvPath { get; set; }
+
+        public string ImagePath { get; set; }
     }
 }

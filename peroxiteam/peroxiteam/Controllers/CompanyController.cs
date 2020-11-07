@@ -11,6 +11,7 @@ using System.Web.SessionState;
 using peroxiteam.SessionAttirbute;
 using Act = peroxiteam.Models.Act;
 using System.Text.RegularExpressions;
+using Student = peroxiteam.Models.Student;
 
 namespace peroxiteam.Controllers
 {
@@ -93,6 +94,63 @@ namespace peroxiteam.Controllers
 
             return View();
         }
+
+
+        public ActionResult ViewCandidates()
+        {
+            var data = DataLibrary.DataProcessor.StudentProcessor.LoadModels();
+            List<Student> models = new List<Student>();
+
+            foreach (var row in data)
+            {
+                models.Add(new Student
+                {
+                    Id = row.Id,
+                    Name = row.Name,
+                    SurName = row.SurName,
+                    StudentNo = row.StudentNo,
+                    Tag = row.Tag,
+                    Grade= row.Grade,
+                    UniversityMail = row.UniversityMail,
+                    University = row.University,
+                    Department = row.Department,
+                    CvPath = row.CvPath,
+                    ImagePath = row.ImagePath
+                });
+            }
+            return View(models);
+        }
+
+
+
+
+        public ActionResult ViewCandidate(int id)
+        {
+            var data = DataLibrary.DataProcessor.StudentProcessor.LoadSpecificModel(id);
+            List<Student> models = new List<Student>();
+
+            foreach (var row in data)
+            {
+                models.Add(new Student
+                {
+                    Id = row.Id,
+                    Name = row.Name,
+                    SurName= row.SurName,
+                    StudentNo = row.StudentNo,
+                    University = row.University,
+                    UniversityMail = row.UniversityMail,
+                    Department = row.Department,
+                    Grade = row.Grade,
+                    StudentState = row.StudentState,
+                    Tag = row.Tag,
+                    CvPath = row.CvPath,
+                    ImagePath = row.ImagePath
+                });
+            }
+            return View(models);
+        }
+
+
 
 
         public ActionResult LogOff()

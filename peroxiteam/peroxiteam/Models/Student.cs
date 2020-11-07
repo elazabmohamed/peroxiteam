@@ -56,7 +56,11 @@ namespace peroxiteam.Models
         public string StudentState { get; set; }
         public string Tag { get; set; }
 
+        [DisplayName("CV")]
+        public string CvPath { get; set; }
 
+        [DisplayName("Resim")]
+        public string ImagePath { get; set; }
 
     }
 }

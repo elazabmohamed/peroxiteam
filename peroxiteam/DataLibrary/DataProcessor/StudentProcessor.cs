@@ -13,7 +13,7 @@ namespace DataLibrary.DataProcessor
     {
         public static int CreateStudent(int id, string name, string surName,
         string studentNo, string universityMail, string university, string department,
-        string grade, string password, string studentState, string tag)
+        string grade, string password, string studentState, string tag, string cvPath, string imagePath)
         {
             Student data = new Student
             {
@@ -28,11 +28,13 @@ namespace DataLibrary.DataProcessor
                 Password = password,
                 StudentState = studentState,
                 Tag = tag,
+                CvPath = cvPath,
+                ImagePath = imagePath,
             };
             string sql = @"insert into dbo.Student (Id, Name, SurName, StudentNo, UniversityMail, University, Department,
-                            Grade, Password, StudentState, Tag)
+                            Grade, Password, StudentState, Tag, CvPath, ImagePath)
                          values (@Id, @Name, @SurName, @StudentNo, @UniversityMail, @University, @Department,
-                            @Grade, @Password, @StudentState, @Tag);";
+                            @Grade, @Password, @StudentState, @Tag, @CvPath, @ImagePath);";
             return SqlDataAccess.SaveData(sql, data);
         }
 
@@ -42,7 +44,7 @@ namespace DataLibrary.DataProcessor
         public static List<Student> LoadModels()
         {
             string sql = @"select Id, Name, SurName, StudentNo, UniversityMail, University, Department,
-                            Grade, Password, StudentState, Tag
+                            Grade, Password, StudentState, Tag, CvPath, ImagePath
                           from dbo.Student;";
             return SqlDataAccess.LoadData<Student>(sql);
         }
@@ -59,5 +61,16 @@ namespace DataLibrary.DataProcessor
             string sql = @"SELECT* FROM dbo.Student WHERE UniversityMail='" + data.UniversityMail + "' AND Password='" + data.Password + "'";
             return SqlDataAccess.CheckLog(sql, data);
         }
+
+
+
+        public static List<Student> LoadSpecificModel(int id)
+        {
+            string sql = @"select Id, Name, SurName, StudentNo, UniversityMail, University, Department,
+                            Grade, StudentState, Tag, CvPath, ImagePath
+                          from dbo.Student where Id='" + id + "';";
+            return SqlDataAccess.LoadData<Student>(sql);
+        }
+
     }
 }

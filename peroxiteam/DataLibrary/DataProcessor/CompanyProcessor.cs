@@ -51,5 +51,10 @@ namespace DataLibrary.DataProcessor
             string sql = @"SELECT* FROM dbo.Company WHERE CompanyMail='" + data.CompanyMail + "' AND Password='" + data.Password + "'";
             return SqlDataAccess.CheckLogCompany(sql, data);
         }
+
+
+
+
+
     }
 }

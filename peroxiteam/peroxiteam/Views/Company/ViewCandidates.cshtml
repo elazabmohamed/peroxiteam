@@ -1,0 +1,55 @@
+﻿@model IEnumerable<peroxiteam.Models.Student>
+
+@{
+    ViewBag.Title = "Adaylar";
+}
+
+<h2>Adaylar</h2>
+
+
+
+
+@foreach (var item in Model)
+{
+    <table class="table" style="max-width: 300px; display: inline;">
+        <tr>
+            <td>
+                <div class="card mb-3" style="width: 300px; height:600px">
+                    <h5 class="card-header">@item.Name @item.SurName  <img style="height: 30px; width: 20px; display: block; float:right;" src=@item.Tag></h5>
+                    <!--
+                    <div class="card-body">
+                        <h6 class="card-subtitle text-muted">Rozet:</h6>
+                        <img style="height: 30px; width: 20px; display: block;" src=@item.Tag>
+                    </div>
+                        -->
+                    <div class="">
+                        <a href='@Url.Action("ViewCandidate", "Company", new { id = item.Id })'>
+                            <img style="height: 300px; width: 300px; display: block;" src=@item.ImagePath class="spells " alt="Card image">
+                        </a>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Department) : @Html.DisplayFor(modelItem => item.Department)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.UniversityMail) : @Html.DisplayFor(modelItem => item.UniversityMail)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Grade) : @Html.DisplayFor(modelItem => item.Grade)</li>
+                        <li class="list-group-item">@Html.DisplayFor(modelItem => item.StudentState)</li>
+                    </ul>
+                    <div class="card-body">
+                        <a class="card-link"> @Html.ActionLink("İncele", "ViewCandidate", new { id = item.Id })</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -10,7 +10,8 @@
     [Grade] NVARCHAR(50) NULL, 
     [Password] NVARCHAR(100) NOT NULL, 
     [StudentState] NCHAR(10) NULL, 
-    [Tag] NCHAR(10) NULL, 
+    [Tag] NVARCHAR(MAX) NULL, 
     [Id] INT NULL, 
-    [CvPath] NVARCHAR(MAX) NULL
+    [CvPath] NVARCHAR(MAX) NULL, 
+    [ImagePath] NVARCHAR(MAX) NULL
 )

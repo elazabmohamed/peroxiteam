@@ -181,6 +181,8 @@
     <Content Include="Views\Home\SignUpCompany.cshtml" />
     <Content Include="Views\Member\ViewAct.cshtml" />
     <Content Include="Views\Company\AddAct.cshtml" />
+    <Content Include="Views\Company\ViewCandidates.cshtml" />
+    <Content Include="Views\Company\ViewCandidate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

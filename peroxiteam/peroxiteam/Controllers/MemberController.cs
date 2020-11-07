@@ -14,7 +14,7 @@ using Act = peroxiteam.Models.Act;
 
 namespace peroxiteam.Controllers
 {
-    [CheckSession]
+    //[CheckSession]
     public class MemberController : Controller
     {
 
@@ -99,6 +99,22 @@ namespace peroxiteam.Controllers
         }
 
 
+
+
+        public ActionResult Apply(int id)
+        {
+
+
+            return View();
+        }
+
+
+        public ActionResult AddComment()
+        {
+
+
+            return View();
+        }
 
 
 
